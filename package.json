@@ -1,0 +1,23 @@
+{
+  "name": "maker-zaiko-scraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "build:watch": "npx tsc --watch",
+    "start": "node ./dist/src/servo.js && node ./dist/src/karsee.js && node ./dist/src/chitose.js" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^16.18.68",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "playwright-core": "^1.40.1"
+  }
+}

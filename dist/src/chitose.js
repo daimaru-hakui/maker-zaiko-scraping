@@ -11,11 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    const browsers = yield test_1.chromium.launch({ headless: false });
+    const browsers = yield test_1.chromium.launch({ headless: false, slowMo: 100 });
     try {
         const page = yield browsers.newPage();
         const url = "http://www.arbe-unet.ocn.ne.jp/chitose/i2_main/i2_main.php";
         yield page.goto(url);
+        console.log("チトセ　ログイン");
         yield page.locator("input[name='c_LOGONID']").fill("3000213001");
         yield page.locator("input[name='c_PASSWD']").fill("3000213001");
         yield page.locator("#logon_link").click();

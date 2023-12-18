@@ -1,7 +1,7 @@
 import { chromium } from "@playwright/test";
 
 (async () => {
-  const browsers = await chromium.launch({ headless: false, slowMo: 500 });
+  const browsers = await chromium.launch();
   try {
     const page = await browsers.newPage();
     const url = "http://www.tombow-net.co.jp/tdss/";
@@ -19,7 +19,7 @@ import { chromium } from "@playwright/test";
     await page.click(".test_Button");
 
     const downloadPromise = page.waitForEvent("download", { timeout: 1200000 });
-    await page.click(".test_Button");
+    await page.click(".test_Button",{ timeout: 600000 });
     const download = await downloadPromise;
     await download.saveAs("/maker-zaiko-file/" + download.suggestedFilename());
 

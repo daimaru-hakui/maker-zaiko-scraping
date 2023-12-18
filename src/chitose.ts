@@ -1,11 +1,12 @@
 import { chromium } from "@playwright/test";
 
 (async () => {
-  const browsers = await chromium.launch({ headless: false });
+  const browsers = await chromium.launch({ headless: false, slowMo: 100 });
   try {
     const page = await browsers.newPage();
     const url = "http://www.arbe-unet.ocn.ne.jp/chitose/i2_main/i2_main.php";
     await page.goto(url);
+    console.log("チトセ　ログイン");
     await page.locator("input[name='c_LOGONID']").fill("3000213001");
     await page.locator("input[name='c_PASSWD']").fill("3000213001");
     await page.locator("#logon_link").click();

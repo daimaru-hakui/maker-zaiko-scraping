@@ -11,11 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    const browsers = yield test_1.chromium.launch({ headless: false });
+    const browsers = yield test_1.chromium.launch({ headless: false, slowMo: 100 });
     try {
         const page = yield browsers.newPage();
         const url = "https://order.karsee.com/aec/user/login";
         yield page.goto(url);
+        console.log("カーシーカシマ　ログイン");
         yield page.locator("input[name='id']").fill("1153-1");
         yield page.locator("input[name='pw']").fill("daimaru0891");
         yield page.locator(".p-login-button").click();

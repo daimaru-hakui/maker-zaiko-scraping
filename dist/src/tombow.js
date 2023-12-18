@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    const browsers = yield test_1.chromium.launch({ headless: false, slowMo: 500 });
+    const browsers = yield test_1.chromium.launch();
     try {
         const page = yield browsers.newPage();
         const url = "http://www.tombow-net.co.jp/tdss/";
@@ -27,7 +27,7 @@ const test_1 = require("@playwright/test");
         }));
         yield page.click(".test_Button");
         const downloadPromise = page.waitForEvent("download", { timeout: 1200000 });
-        yield page.click(".test_Button");
+        yield page.click(".test_Button", { timeout: 600000 });
         const download = yield downloadPromise;
         yield download.saveAs("/maker-zaiko-file/" + download.suggestedFilename());
         console.log("終了");

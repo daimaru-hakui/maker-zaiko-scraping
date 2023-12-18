@@ -1,11 +1,12 @@
 import { chromium } from "@playwright/test";
 
 (async () => {
-  const browsers = await chromium.launch({ headless: false });
+  const browsers = await chromium.launch({headless:false ,slowMo: 100 });
   try {
     const page = await browsers.newPage();
     const url = "https://order.karsee.com/aec/user/login";
     await page.goto(url);
+    console.log("カーシーカシマ　ログイン");
     await page.locator("input[name='id']").fill("1153-1");
     await page.locator("input[name='pw']").fill("daimaru0891");
     await page.locator(".p-login-button").click();

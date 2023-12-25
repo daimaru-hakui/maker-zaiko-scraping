@@ -1,7 +1,7 @@
 import { chromium } from "@playwright/test";
 
 (async () => {
-  const browsers = await chromium.launch({headless:false ,slowMo: 100 });
+  const browsers = await chromium.launch({ headless: false, slowMo: 100 });
   try {
     const page = await browsers.newPage();
     const url = "https://order.karsee.com/aec/user/login";
@@ -13,7 +13,7 @@ import { chromium } from "@playwright/test";
     await page.locator(".p-login-button").click();
     await page.locator("text=在庫データ").click();
 
-    const downloadPromise = page.waitForEvent("download");
+    const downloadPromise = page.waitForEvent("download", { timeout: 100000 });
     await page.getByText("ファイルをダウンロード").click();
     const download = await downloadPromise;
     await download.saveAs("/maker-zaiko-file/" + download.suggestedFilename());

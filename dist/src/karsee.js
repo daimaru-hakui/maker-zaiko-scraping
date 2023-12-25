@@ -22,7 +22,7 @@ const test_1 = require("@playwright/test");
         yield page.locator(".p-login-button").click();
         yield page.locator(".p-login-button").click();
         yield page.locator("text=在庫データ").click();
-        const downloadPromise = page.waitForEvent("download");
+        const downloadPromise = page.waitForEvent("download", { timeout: 100000 });
         yield page.getByText("ファイルをダウンロード").click();
         const download = yield downloadPromise;
         yield download.saveAs("/maker-zaiko-file/" + download.suggestedFilename());

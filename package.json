@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "build:watch": "npx tsc --watch",
-    "start": "node ./dist/src/servo.js && node ./dist/src/karsee.js && node ./dist/src/chitose.js && node ./dist/src/burtle.js" 
+    "start": "node ./dist/src/servo.js && node ./dist/src/chitose.js && node ./dist/src/burtle.js" 
   },
   "keywords": [],
   "author": "",
